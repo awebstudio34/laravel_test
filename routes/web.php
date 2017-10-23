@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/post-list', 'PostController@index');
 
+Route::get('/post-list2', 'Post2Controller@index');
+
 Route::get('/test', function () {
     return view('welcome2');
 });
