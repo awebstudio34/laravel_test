@@ -8,8 +8,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Posts::all();
+        $posts = Posts::with('comments')->all();
+        dd($posts);
         //$posts = Posts::where('slug','name_2')->get();
-        return view('partials.index');
+        return view('partials.index')->with(compact('posts'));
     }
 }
