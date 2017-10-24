@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('post-list', 'PostsController@index');
+Route::post('addcomment', 'PostsController@save');
