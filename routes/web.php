@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::get('post-list', 'PostsController@index');
-Route::post('addcomment', 'PostsController@save');
+Route::get('/', 'PostsController@index');
+Route::post('/addcomment', 'PostsController@save');
+Route::get('/posts/{slug}', 'PostsController@show');
+Route::get('/addpost', 'PostsController@newpost');
+Route::post('/savepost', 'PostsController@savepost');

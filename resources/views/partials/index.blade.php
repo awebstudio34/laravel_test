@@ -1,7 +1,35 @@
 @extends('layouts.master')
 
 @section('content')
-    <table>
+  {{--  <style>
+        * {
+            border:1px solid gray;
+        }
+    </style>--}}
+  @foreach($posts as $post)
+    <a href="posts/{{ $post->slug }}">
+        <div class="row">
+            <div class="col-2">
+                <img width="100%" src="{{ asset('images/surprised_cat.jpg') }}" alt="Статья {{ $post->name }}">
+            </div>
+            <div class="col-10 text-center">
+                <div class="row">
+                    <div class="col">
+                        <h2>{{ $post->name }}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <small>Добавлено: {{ date_format(date_create($post->updated_at), "d-m-Y") }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <br>
+  @endforeach
+  <a href="/addpost" class="btn btn-success btn-block btn-lg">Добавить статью</a>
+{{--    <table>
         @foreach($posts as $post)
             <tr style="background-color: #aaaaaa">
                 <td>{{ $post->id }}</td>
@@ -30,7 +58,6 @@
                 </tr>
             @endforeach
         @endforeach
-    </table>
+    </table>--}}
 
-    @include('partials.addcomment')
 @endsection

@@ -1,12 +1,16 @@
 <br>
-<form method="post" action="/addcomment">
-    {{ csrf_field() }}
-    <input type="text" name="name" placeholder="Иван"><br><br>
-    <select name="post_id">
-        @foreach($posts as $post)
-            <option value="{{ $post->id }}">{{ $post->id }}</option>
-        @endforeach
-    </select><br><br>
-    <textarea name="content" placeholder="Введите текст сообщения"></textarea><br><br>
-    <input type="submit" name="submit" value="Отправить">
-</form>
+<div class="container">
+    <form method="post" action="/addcomment" role="form">
+        {{ csrf_field() }}
+        <input type="hidden" name="post_id" value="{{ $post->id }}">
+        <div class="form-group">
+            <label for="name">Ваше имя:</label>
+            <input type="text" name="name" placeholder="Иван" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="content">Комментарий:</label>
+            <textarea class="form-control" name="content" placeholder="Введите текст сообщения" id="content"></textarea>
+        </div>
+            <input class="btn btn-success" type="submit" name="submit" value="Отправить">
+    </form>
+</div>
