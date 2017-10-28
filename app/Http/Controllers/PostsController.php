@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Posts;
 use App\Comment;
 use Illuminate\Http\Request;
+use Validator;
 
 class PostsController extends Controller
 {
@@ -41,6 +43,18 @@ class PostsController extends Controller
 
     public function savepost(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:posts|max:255',
+            'slug' => 'required|unique:posts|max:255',
+            'photo' => 'required | mimes:jpeg,jpg,png | max:1000',
+            'content' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect('/addpost')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $newPost = new Posts();
         $newPost->name = $request->name;
         $newPost->slug = $request->slug;
