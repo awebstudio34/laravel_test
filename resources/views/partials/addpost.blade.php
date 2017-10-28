@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <form method="post" action="/savepost" role="form">
+    <form method="post" action="/savepost" role="form" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="name">Название статьи:</label>
@@ -10,6 +10,10 @@
         <div class="form-group">
             <label for="slug">URL статьи:</label>
             <input type="text" name="slug" placeholder="article_title" class="form-control" id="slug">
+        </div>
+        <div class="form-group">
+            <label for="photo">Титульное фото для статьи:</label>
+            <input type="file" name="photo" class="form-control" id="photo">
         </div>
         <div class="form-group">
             <label for="content">Текст статьи:</label>

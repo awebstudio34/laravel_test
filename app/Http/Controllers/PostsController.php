@@ -45,6 +45,16 @@ class PostsController extends Controller
         $newPost->name = $request->name;
         $newPost->slug = $request->slug;
         $newPost->content = $request->content;
+
+        if(isset($_FILES['photo'])) {
+            $file = $_FILES['photo'];
+            $tempName = $file['tmp_name'];
+            $extention =  substr(strrchr($file['name'], '.'), 1);
+            $newName = '/images/' . $request->slug . '_title.' . $extention;
+            move_uploaded_file($tempName, public_path() . $newName);
+            $newPost->img = $newName;
+        }
+
         $newPost->save();
         $request->session()->flash('alert-success', 'Пост добавлен успешно!');
         return redirect('/posts/'.$request->slug);

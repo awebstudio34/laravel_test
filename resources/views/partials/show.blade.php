@@ -4,7 +4,7 @@
         <div class="row card">
             <br>
             <div>
-                <img class="col-2 img-responsive card-img" src="{{ asset('images/surprised_cat.jpg') }}" alt="Статья {{ $post->name }}">
+                <img class="col-2 img-responsive card-img" src="{{ isset($post->img) ? asset('/') . $post->img : asset('images/surprised_cat.jpg')}}" alt="Статья {{ $post->name }}">
             </div>
             <div class="text-center">
                 <h2  class="card-title">{{ $post->name }}</h2>
