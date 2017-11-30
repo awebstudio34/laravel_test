@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use resources\views;
+use App\Comment;
 
 use Illuminate\Http\Request;
 
@@ -9,6 +9,7 @@ class MyController extends Controller
 {
     public function mymethod()
 	{
-		return view('myview');
+		$table_test=Comment::select(['author','content'])->get();
+		return view('header')->with('table',$table_test);
 	}
 }
