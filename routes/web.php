@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
+
+Route::get('/','MyController@mymethod');
+
+Route::get('article/{id}','MyController@articlemethod')->name('article_articlemethod');
