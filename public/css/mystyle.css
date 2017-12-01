@@ -1,5 +1,6 @@
 div.headstyle
 {
+	margin-top:10px;
 	font-size:25px;
 	margin-left:20px;
 	display:inline-block;
@@ -10,12 +11,15 @@ div.head
 	text-align:center;
 	width:100%;
 	background-color:#8c8;
-	border:2px solid red;
+	/* border:2px solid red; */
+	height:50px;
 }
 
 body
 {
 	background-color: #eee;
+	position:relative;
+	/* padding-bottom:20px; */
 }
 
 div.foot
@@ -30,26 +34,28 @@ div.footerstyle
 	width:100%;
 	text-align: right;
 	background-color:#d9f;
-	border:2px solid red;
+	/* border:2px solid red; */
 }
 div.article
 {
 	margin-left:10%;
 	margin-top:10px;
 	margin-bottom:10px;
-	height:150px;
+	height:153px;
 	width:80%;
 	text-align: center;
-	background-color:#fff;
-	border:2px solid red;
+	background-color:#dfd;
+	/* border:2px solid red; */
+	border-radius: 10px; 
 }
 div.photo
 {
-	border:2px solid red; 
+	/* border:2px solid red;  */
 	height:100px;
 	margin:25px 0 25px 25px;
 	width:130px;
 	position:absolute;
+	float:left;
 }
 div.name_article
 {
@@ -74,4 +80,8 @@ div.minicomment
 	margin-left:160px;
 	margin-top:25px;
 	text-align:center;
+}
+a.mybtnposition
+{
+	margin-top:25px;
 }

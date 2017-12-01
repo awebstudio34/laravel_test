@@ -9,7 +9,11 @@ class MyController extends Controller
 {
     public function mymethod()
 	{
-		$table_test=Comment::select(['author','content'])->get();
-		return view('header')->with('table',$table_test);
+		$table_test=Comment::select(['author','content','id'])->get();
+		return view('page')->with('table',$table_test);
+	}
+	public function articlemethod($id)
+	{
+		return view('article')->with('id',$id);
 	}
 }

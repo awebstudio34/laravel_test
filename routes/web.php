@@ -16,3 +16,5 @@
 }); */
 
 Route::get('/','MyController@mymethod');
+
+Route::get('article/{id}','MyController@articlemethod')->name('article_articlemethod');
