@@ -18,3 +18,6 @@
 Route::get('/','MyController@mymethod');
 
 Route::get('article/{id}','MyController@articlemethod')->name('article_articlemethod');
+
+Route::get('add', 'MyController@add');
+Route::post('add', 'MyController@addpost');

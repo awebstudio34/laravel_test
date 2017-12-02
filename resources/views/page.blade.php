@@ -1,6 +1,5 @@
-@include('header')
-@include('footer')
-@yield('header')
+@extends('layouts.master')
+@section('content')
 @foreach($posts as $post)
 <div class="article">
 <div class="photo"><img src="{{asset('так-блэт.jpg')}}" width="130px" height="100px" class="img-rounded"></div>
@@ -10,4 +9,4 @@
 <a class="btn btn-info mybtnposition" href="{{route('article_articlemethod',['id'=>$post->id])}}">Подробнее ><i class="icon-chevron-right"></i> </a>
 </div>
 @endforeach
-@yield('footer')
+@endsection

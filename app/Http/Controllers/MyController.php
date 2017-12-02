@@ -18,6 +18,16 @@ class MyController extends Controller
 	{
 		
 		$article=Post::find($id);
-		return view('article')->with(['post'=>$article]);
+		$comment_for_post=Comment::where('post_id',$id)->get();
+		return view('article')->with(['post'=>$article, 'comments'=>$comment_for_post]);
 	}
+	public function add()
+	{
+		return view('add_comment');
+	}
+	public function addpost()
+	{
+		
+	}
+	
 }

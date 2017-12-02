@@ -67,12 +67,28 @@ div.name_article
 	width:30%;
 	display:inline-block;
 }
+div.name_articlepost
+{
+	margin-top:10px;
+	font-size:20px;
+	/* border:2px solid red; */
+}
 div.created_date
 {
 	margin-top:10px;
 	width:30%;
 	float:right;
 	/* border:2px solid red; */
+}
+div.created_datepost
+{
+	font-style:italic;
+	font-size:12px;
+	margin-top:10px;
+	margin-left:0;
+	/* border:2px solid red; */
+	width:30%;
+	display:inline-block;
 }
 div.minicomment
 {
@@ -84,4 +100,76 @@ div.minicomment
 a.mybtnposition
 {
 	margin-top:25px;
+}
+div.photopost
+{
+		/* border:2px solid red;  */
+	height:80px;
+	margin:25px 0 25px 25px;
+	width:80px;
+	float:left;
+}
+div.articlepost
+{
+	margin-left:10%;
+	margin-top:10px;
+	margin-bottom:10px;
+	height:253px;
+	width:80%;
+	text-align: center;
+	background-color:#dfd;
+	border:2px solid #aba;
+	border-radius: 10px; 
+}
+div.post_content
+{
+	border:2px solid #ddd;
+	height:119px;
+	font-style:italic;
+	font-size:15px;
+	background-color:#cec;
+	border-radius: 10px; 
+}
+div.comment
+{
+	margin-left:10%;
+	margin-top:10px;
+	margin-bottom:10px;
+	height:70px;
+	width:80%;
+	text-align: center;
+	background-color:#fc9;
+	/* border:2px solid red; */
+	border-radius: 10px; 
+}
+div.human
+{
+	margin-top:8px;
+}
+div.human p
+{
+	margin-top:8px;
+}
+form.forms_settings
+{
+	margin-left:10%;
+	width:80%;
+	/* border:2px solid #9b9; */
+	text-align:center;
+}
+textarea
+{
+	width: 100%; /* Ширина поля в процентах */
+    height: 200px;
+	resize:none;
+}
+div.textt
+{
+	text-align:center;
+}
+
+input, textarea.formm
+{
+	width:50% !important;
+	margin-left:25% !important;
 }
