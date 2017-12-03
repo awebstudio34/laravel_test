@@ -13,6 +13,6 @@
 <body>
 <div class="head">
     <div class="headstyle"><a href={{ asset('') }}>Главная страница</a></div>
-    <div class="headstyle"><a href={{ asset('') }}>Добавить статью</a></div>
+    <div class="headstyle"><a href={{ asset('/add_post') }}>Добавить статью</a></div>
 </div>
 @endsection

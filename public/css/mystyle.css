@@ -41,7 +41,7 @@ div.article
 	margin-left:10%;
 	margin-top:10px;
 	margin-bottom:10px;
-	height:153px;
+	height:auto;
 	width:80%;
 	text-align: center;
 	background-color:#dfd;
@@ -114,7 +114,7 @@ div.articlepost
 	margin-left:10%;
 	margin-top:10px;
 	margin-bottom:10px;
-	height:253px;
+	height:auto;
 	width:80%;
 	text-align: center;
 	background-color:#dfd;
@@ -124,7 +124,7 @@ div.articlepost
 div.post_content
 {
 	border:2px solid #ddd;
-	height:119px;
+	height:auto;
 	font-style:italic;
 	font-size:15px;
 	background-color:#cec;
@@ -168,7 +168,12 @@ div.textt
 	text-align:center;
 }
 
-input, textarea.formm
+input.formm
+{
+	width:50% !important;
+	margin-left:25% !important;
+}
+textarea.formm
 {
 	width:50% !important;
 	margin-left:25% !important;

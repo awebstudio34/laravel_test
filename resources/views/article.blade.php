@@ -3,6 +3,7 @@
 @section('content')
     @if($errors->any())
         <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
             <ul>
                 @foreach($errors->all() as $error)
                     <li>{{$error}}</li>
@@ -17,13 +18,12 @@
 			<p>{{Session::get('success')}}</p>
 		</div>
 	@endif
-
     {{--<div class="alert alert-success">
       Комментарий отправлен успешно.
     </div>--}}
     <div class="container">
         <div class="articlepost row">
-            <div class="photopost col-xs-2"><img src="{{asset('так-блэт.jpg')}}" width="80px" height="80px"
+            <div class="photopost col-xs-2"><img src="{{asset($post->img)}}" width="80px" height="80px"
                                                  class="img-rounded"></div>
             <div class="created_datepost col-xs-1">{{$post->created_at}}
                 <div class="name_articlepost">{{$post->name}}</div>
