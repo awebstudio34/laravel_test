@@ -12,12 +12,12 @@
         </div>
     @endif
 
-	@if(Session::has('success'))
-		<div class="alert alert-success fade in">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-			<p>{{Session::get('success')}}</p>
-		</div>
-	@endif
+    @if(Session::has('success'))
+        <div class="alert alert-success fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <p>{{Session::get('success')}}</p>
+        </div>
+    @endif
     {{--<div class="alert alert-success">
       Комментарий отправлен успешно.
     </div>--}}
@@ -25,7 +25,7 @@
         <div class="articlepost row">
             <div class="photopost col-xs-2"><img src="{{asset($post->img)}}" width="80px" height="80px"
                                                  class="img-rounded"></div>
-            <div class="created_datepost col-xs-1">{{$post->created_at}}
+            <div class="created_datepost col-xs-2">{{$post->created_at}}
                 <div class="name_articlepost">{{$post->name}}</div>
             </div>
             <div class="post_content col-xs-12">{{$post->content}}</div>
@@ -40,7 +40,12 @@
         @foreach($comments as $comment)
             <div class="comment row">
                 <div class="human col-xs-3">{{$comment->author}}<p>{{$comment->created_at}}</p></div>
-                <div class="human col-xs-9">{{$comment->content}}</div>
+                <div class="human col-xs-7">{{$comment->content}}</div>
+                <form method="post" action="{{ route('delete_comment', ['id' => $comment->id]) }}">
+                    <button style="margin-top:0px;" type="submit" class="btn btn-danger button-delete">х</button>
+                    {{method_field('DELETE')}}
+                    {{ csrf_field() }}
+                </form>
             </div>
         @endforeach
     </div>

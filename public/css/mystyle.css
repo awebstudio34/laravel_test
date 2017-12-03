@@ -178,3 +178,13 @@ textarea.formm
 	width:50% !important;
 	margin-left:25% !important;
 }
+button.button-delete
+{
+	float: right;
+	margin-top:25px;
+}
+button.mybtnposition
+{
+	margin-top:25px;
+	display: inline-block;
+}

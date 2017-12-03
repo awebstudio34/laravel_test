@@ -12,8 +12,7 @@ class MyController extends Controller
 {
     public function mymethod()
     {
-        $posts = Post::select(['id', 'name', 'slug', 'img', 'created_at'])->get();
-        $table_test = Comment::select(['author', 'content', 'id'])->get();
+        $posts = Post::get();
         return view('page')->with(['posts'=> $posts]);
     }
 
@@ -51,6 +50,22 @@ class MyController extends Controller
         $post->save();
         $request->session()->flash('success', 'Ваша статья успешно добавлена');
         return redirect('/');
+    }
+
+    public function delete_comment(Comment $id)
+    {
+        $id->delete();
+        return redirect()->back();
+    }
+    public function delete_post(Post $id)
+    {
+        $comments_for_post=$id->comments;
+        foreach($comments_for_post as $comment)
+        {
+            $comment->delete();
+        }
+        $id->delete();
+        return redirect()->back();
     }
 
 }
