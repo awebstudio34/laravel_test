@@ -30,6 +30,9 @@ class MyController extends Controller
 		$comment=new Comment;
 		$comment->fill($temp);
 		$comment->save();
+
+		$request->session()->flash('success','Ваш комментарий успешно добавлен');
+
 		return redirect()->back();
 	}
 	

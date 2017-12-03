@@ -10,6 +10,14 @@
             </ul>
         </div>
     @endif
+
+	@if(Session::has('success'))
+		<div class="alert alert-success fade in">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+			<p>{{Session::get('success')}}</p>
+		</div>
+	@endif
+
     {{--<div class="alert alert-success">
       Комментарий отправлен успешно.
     </div>--}}
