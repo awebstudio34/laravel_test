@@ -21,13 +21,16 @@ class MyController extends Controller
 		$comment_for_post=Comment::where('post_id',$id)->get();
 		return view('article')->with(['post'=>$article, 'comments'=>$comment_for_post]);
 	}
-	public function add()
+	public function add(Request $request)
 	{
-		return view('add_comment');
-	}
-	public function addpost()
-	{
-		
+		$this->validate($request, [
+		'author'=>'required|max:255','content'=>'required'
+		]);
+		$temp=$request->all();
+		$comment=new Comment;
+		$comment->fill($temp);
+		$comment->save();
+		return redirect()->back();
 	}
 	
 }
