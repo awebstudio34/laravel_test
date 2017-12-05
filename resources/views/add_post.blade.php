@@ -14,7 +14,7 @@
             @endif
             <div class="col-xs-12 text-center"><h2>Создать новую статью</h2></div>
             <div class="col-xs-12">
-                <form class="" method="post" action="{{route('add_post_data')}}" class="">
+                <form class="" enctype="multipart/form-data" method="post" action="{{route('add_post_data')}}" class="">
                     <div class="form-group">
                         <label for="name"> Имя: </label>
                         <input class="form-control" name="name" type="text" placeholder="Наименование статьи">

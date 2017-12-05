@@ -13,7 +13,7 @@ class MyController extends Controller
     public function mymethod()
     {
         $posts = Post::get();
-        return view('page')->with(['posts'=> $posts]);
+        return view('page')->with(['posts' => $posts]);
     }
 
     public function articlemethod($id)
@@ -36,18 +36,29 @@ class MyController extends Controller
 
         return redirect()->back();
     }
+
     public function add_post()
     {
         return view('add_post');
     }
+
     public function add_post_data(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required|max:255', 'slug' => 'required|max:255', 'content'=>'required', 'img'=>'required'
+        $this->validate($request, [
+            'name' => 'required|max:255', 'slug' => 'required|max:255', 'content' => 'required', 'img' => 'required|image'
         ]);
-        $post=new Post;
+        $filename = $request->file('img')->getClientOriginalName();//получаем имя файла с запроса
+        $request->file('img')->move(public_path('images\\'), $filename);/*переносим временно скачанный файл
+        в директорию public_path('images\\') и называем $filename*/
+        //$newfile=public_path('images\\' . $_FILES['img']['name']);
+        //move_uploaded_file($_FILES['img']['tmp_name'], $newfile);
+        $post = new Post;
         $post->fill($request->all());
+
+        //dump($request->file('img'));
         $post->save();
+        $post->update(['img' => $filename]);
+
         $request->session()->flash('success', 'Ваша статья успешно добавлена');
         return redirect('/');
     }
@@ -57,13 +68,14 @@ class MyController extends Controller
         $id->delete();
         return redirect()->back();
     }
+
     public function delete_post(Post $id)
     {
-        $comments_for_post=$id->comments;
-        foreach($comments_for_post as $comment)
-        {
-            $comment->delete();
+        $comments_for_post = $id->comments;//имеем доступ к коментам благодаря связям
+        foreach ($comments_for_post as $comment) {
+            $comment->delete();//удаляем комменты принадлежащие удаляемому айди статьи
         }
+        Storage::disk('local')->delete($id->img);//удаляем картинку
         $id->delete();
         return redirect()->back();
     }
