@@ -18,3 +18,11 @@
 Route::get('/','MyController@mymethod');
 
 Route::get('article/{id}','MyController@articlemethod')->name('article_articlemethod');
+
+Route::post('add', 'MyController@add')->name('addpost');
+
+Route::get('add_post','MyController@add_post');
+Route::post('add_post', 'MyController@add_post_data')->name('add_post_data');
+
+Route::delete('article/delete/{id}', 'MyController@delete_comment')->name('delete_comment');
+Route::delete('post/delete/{id}', 'MyController@delete_post')->name('delete_post');
